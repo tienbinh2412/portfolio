@@ -40,6 +40,14 @@
       align-items: center;
       justify-content: center;
       gap: 50px;
+      .certificate-container{
+        height: 50%;
+        width: 95%;
+        img{
+          width: 100%;
+          max-width: 1000px;
+        }
+      }
 
       @include mobile {
         flex-direction: column;

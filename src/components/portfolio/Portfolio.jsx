@@ -7,7 +7,7 @@ import itemsNova from "./items/ItemsNova";
 import itemsFreelance from "./items/ItemsFreelance";
 
 
-const Single = ({ item }) => {
+const Single = ({ item, projectName }) => {
   const ref = useRef();
 
   const { scrollYProgress } = useScroll({
@@ -30,22 +30,31 @@ const Single = ({ item }) => {
     <section >
       <div className="container">
         <div className="wrapper">
-          <motion.div className="textContainer" style={{y}}>
-            <h2>{item.title}</h2>
-            <p>{item.desc}</p>
-            <div className="link-article" style={{
-              display: "flex",
-              gap: "10px"
-            }}>
-              <button onClick={(e) => handleClick(e,item.linkOne)}>Link{item?.linkTwo ? " 1st article" : " the article"}</button>
-              {item?.linkTwo && (
-                <button onClick={(e) => handleClick(e,item.linkTwo)}>Link 2nd article</button>
-              )}
+          {projectName !== 'Certificates' && (
+            <>
+              <motion.div className="textContainer" style={{y}}>
+                <h2>{item.title}</h2>
+                <p>{item.desc}</p>
+                <div className="link-article" style={{
+                  display: "flex",
+                  gap: "10px"
+                }}>
+                  <button onClick={(e) => handleClick(e,item.linkOne)}>Link{item?.linkTwo ? " 1st article" : " the article"}</button>
+                  {item?.linkTwo && (
+                    <button onClick={(e) => handleClick(e,item.linkTwo)}>Link 2nd article</button>
+                  )}
+                </div>
+              </motion.div>
+              <div className="imageContainer" ref={ref}>
+                <img src={item.img} alt="" />
+              </div>
+            </>
+          )}
+          {projectName === 'Certificates' && (
+            <div className="certificate-container">
+              <img src="https://nguyen-kim-ngan-portfolio.netlify.app/certificates.png" alt="" />
             </div>
-          </motion.div>
-          <div className="imageContainer" ref={ref}>
-            <img src={item.img} alt="" />
-          </div>
+          )}
         </div>
       </div>
     </section>
@@ -90,17 +99,13 @@ const Portfolio = (props) => {
     <div className="portfolio" ref={ref}>
       <div className="progress">
         <h1>{props.projectName}</h1>
-        {props.projectName !== 'Certificates' &&(
-          <motion.div style={{ scaleX }} className="progressBar"></motion.div>
-        )}
+        <motion.div style={{ scaleX }} className="progressBar"></motion.div>
       </div>
       {props.projectName !== 'Certificates' && data.map((item) => (
         <Single item={item} key={item.id} projectName={props.projectName}/>
       ))}
-      {props.projectName !== 'Certificates' && (
-        <div className="certificate-container">
-          <img src="https://nguyen-kim-ngan-portfolio.netlify.app/certificates.png" alt="" />
-        </div>
+      {props.projectName === 'Certificates' && (
+        <Single item={null} key={null} projectName={props.projectName}/>
       )}
     </div>
   );
