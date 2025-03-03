@@ -34,6 +34,15 @@ const App = () => {
       <Portfolio
         projectName={"Novaon Agency"}
       />
+      <Portfolio
+        projectName={"Freelance"}
+      />
+      <section id="certificates">
+        <Parallax type="certificates" />
+      </section>
+      <Portfolio
+        projectName={"Certificates"}
+      />
       <section id="Contact">
         <Contact />
       </section>

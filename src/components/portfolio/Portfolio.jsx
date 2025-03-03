@@ -4,6 +4,7 @@ import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import itemsForza from "./items/ItemsForza";
 import itemsAim from "./items/ItemsAim";
 import itemsNova from "./items/ItemsNova";
+import itemsFreelance from "./items/ItemsFreelance";
 
 
 const Single = ({ item }) => {
@@ -67,6 +68,9 @@ const Portfolio = (props) => {
       case 'Novaon Agency':
         setData(itemsNova);
         break;
+      case 'Freelance':
+        setData(itemsFreelance);
+        break;
       default:
         break;
     }
@@ -86,11 +90,18 @@ const Portfolio = (props) => {
     <div className="portfolio" ref={ref}>
       <div className="progress">
         <h1>{props.projectName}</h1>
-        <motion.div style={{ scaleX }} className="progressBar"></motion.div>
+        {props.projectName !== 'Certificates' &&(
+          <motion.div style={{ scaleX }} className="progressBar"></motion.div>
+        )}
       </div>
-      {data.map((item) => (
+      {props.projectName !== 'Certificates' && data.map((item) => (
         <Single item={item} key={item.id} projectName={props.projectName}/>
       ))}
+      {props.projectName !== 'Certificates' && (
+        <div className="certificate-container">
+          <img src="https://nguyen-kim-ngan-portfolio.netlify.app/certificates.png" alt="" />
+        </div>
+      )}
     </div>
   );
 };
