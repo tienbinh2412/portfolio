@@ -2,7 +2,7 @@ const itemsNova = [
     {
       id: 1,
       title: "Huy Hoang Lock",
-      img: "https://nguyen-kim-ngan-portfolio.netlify.app/project/nova/huy-hoang.png",
+      img: "https://nguyen-kim-ngan-portfolio.netlify.app/project/nova/huy_hoang.png",
       desc: "Create engaging English content on travel and hospitality.",
       linkOne: "https://www.facebook.com/KhoaHuyHoang.Antoanvuottroi/posts/pfbid02FSP6EYER5bGMGAi977iPHKnkuGtGrQntjMNhMZnjstNNd6iaKX3iRsFpcmsLr2Fql",
       linkTwo: "https://www.facebook.com/KhoaHuyHoang.Antoanvuottroi/posts/pfbid032kQx3YB3NDuSfbyUWbCif7n4cKmnQrkrbz9dKQX2q53jri5REcET3Jm4iSJoe6Prl"
