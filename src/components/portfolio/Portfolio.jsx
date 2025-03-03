@@ -29,7 +29,7 @@ const Single = ({ item, projectName }) => {
   return (
     <section >
       <div className="container">
-        <div className="wrapper">
+        <div className={projectName !== 'Certificates' ? 'wrapper' : 'wrapper-certificate'}>
           {projectName !== 'Certificates' && (
             <>
               <motion.div className="textContainer" style={{y}}>
